@@ -4,11 +4,14 @@ public:
         vector<vector<string>> result;
         vector<string> dupFiles;
         string directory, file, content, path, key;
-        unordered_multimap<string, string> dupCheck; // key:content, value: directory
+        //unordered_multimap<string, string> dupCheck; // key:content, value: directory
+        multimap<string, string> dupCheck; // key:content, value: directory
         set<string> keys;
         size_t pos;
         //auto range = dupCheck.equal_range("a");
-        pair<unordered_multimap<string, string>::iterator,unordered_multimap<string, string>::iterator> range;
+        //pair<unordered_multimap<string, string>::iterator,unordered_multimap<string, string>::iterator> range;
+        pair<multimap<string, string>::iterator,multimap<string, string>::iterator> range;
+        //this case multimap is a bit faster than unordered_multimap
         
         for(auto iter = paths.begin(); iter != paths.end();iter++){
             directory = "";
