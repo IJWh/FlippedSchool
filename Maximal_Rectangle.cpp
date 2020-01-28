@@ -38,7 +38,7 @@ public:
         }
         
         
-        //check each area;
+        //search maximum area;
         for(int j=0;j<width;j++){
             for(int i=0; i<height; i++){
                 if(new_matrix[i][j] > 0){
@@ -68,3 +68,4 @@ public:
         return Max_area;
     }
 };
+
