@@ -13,15 +13,6 @@ class Solution:
         if not root:
             return result
         
-        def r_node_val(cur_node:TreeNode):
-            cur_node.val *= -1
-            if cur_node.left is not None:
-                r_node_val(cur_node.left)
-            if cur_node.right is not None:
-                r_node_val(cur_node.right)
-            
-            
-        
         def each_path(cur_node: TreeNode, prev_path:List[int]):
             cur_path = copy.deepcopy(prev_path)
             cur_path.append(cur_node.val)
@@ -42,16 +33,5 @@ class Solution:
                     
             return
             
-        r_val = False
-        if total < 0:
-            r_node_val(root)
-            total *= -1
-            r_val = True
-            
         each_path(root,[])
-        
-        if r_val:
-            for i in range(len(result)):
-                for j in range(len(result[i])):
-                    result[i][j] *= -1
         return result
