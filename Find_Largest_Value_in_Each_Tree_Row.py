@@ -65,8 +65,4 @@ class Solution:
         
         update_val(root,0)
         
-        for val in self.largest_val[:]:
-            if val is None:
-                self.largest_val.remove(None)
-        
         return self.largest_val
