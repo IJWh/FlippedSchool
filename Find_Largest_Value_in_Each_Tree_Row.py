@@ -33,3 +33,40 @@ class Solution:
                 self.largest_val.remove(None)
         
         return self.largest_val
+
+    #====================================================
+    # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def __init__(self):
+        self.largest_val = [None]
+        
+    def largestValues(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
+        
+        self.largest_val[0] = root.val
+        
+        def update_val(n:TreeNode, depth:int):
+            if len(self.largest_val) < depth +1:
+                self.largest_val.append(n.val)
+            else:
+                self.largest_val[depth] = max(self.largest_val[depth], n.val)
+            
+            if n.left is not None:
+                update_val(n.left, depth+1)
+            if n.right is not None:
+                update_val(n.right, depth+1)
+                
+        
+        update_val(root,0)
+        
+        for val in self.largest_val[:]:
+            if val is None:
+                self.largest_val.remove(None)
+        
+        return self.largest_val
